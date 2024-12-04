@@ -1,6 +1,5 @@
 use std::{fs::File, io::Read, path::Path};
 
-
 pub fn read_input_string<P: AsRef<Path>>(path: P) -> Result<String, std::io::Error> {
     let mut data = String::new();
     let mut f = File::open(path)?;

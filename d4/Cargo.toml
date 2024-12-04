@@ -1,0 +1,10 @@
+[package]
+name = "d4"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+itertools = "0.13.0"
+strum = "0.26.3"
+strum_macros = "0.26.4"
+utils = { version = "0.1.0", path = "../utils" }

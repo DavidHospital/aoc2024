@@ -15,21 +15,14 @@ fn main() {
         .collect();
 
     // Part A
-    let safe_reports: Vec<_> = reports
-        .iter()
-        .filter(|report| {
-            report.is_safe()
-        })
-        .collect();
+    let safe_reports: Vec<_> = reports.iter().filter(|report| report.is_safe()).collect();
 
     println!("Part A: {}", safe_reports.len());
 
     // Part B
     let safe_reports: Vec<_> = reports
         .iter()
-        .filter(|report| {
-            report.sub_reports().into_iter().any(|r| r.is_safe())
-        })
+        .filter(|report| report.sub_reports().into_iter().any(|r| r.is_safe()))
         .collect();
     println!("Part B: {}", safe_reports.len());
 }
@@ -57,10 +50,12 @@ impl Report {
     }
 
     fn sub_reports(&self) -> Vec<Report> {
-        (0..self.0.len()).map(|idx| {
-            let mut report = self.0.clone();
-            report.remove(idx);
-            Report(report)
-        }).collect()
+        (0..self.0.len())
+            .map(|idx| {
+                let mut report = self.0.clone();
+                report.remove(idx);
+                Report(report)
+            })
+            .collect()
     }
 }
